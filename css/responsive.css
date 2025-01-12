@@ -3,15 +3,184 @@
   * Add the media rule and the styles that are common within the TABLET and MOBILE views
   * Add the media rule and the styles that belong to the MOBILE view only
 */
+@import url("https://v1.fontapi.ir/css/SFProDisplay");
+
+/* Added to fix all devices' adress not aligning with 3 lines to adress */
+.address {
+  align-items: center;
+}
+.address > p {
+  width: 182px;
+}
 
 @media (min-width: 1024px) {
-  /* .top-navigation .trigram {
+  .top-navigation .trigram {
     display: none;
-  } */
+  }
 
   /* 👇👇👇 Add the styles that belong to the DESKTOP view only beneath 👇👇👇 */
 }
 
 /* 👇👇👇 Add the media rule and the styles that are common within the TABLET and MOBILE views beneath 👇👇👇 */
 
+@media (max-width: 1023px) {
+  /* why does using the responsive mode in inspect, make fixed 
+    only work when scrolling up, but new tab of it says its okay */
+  header {
+    width: 100%;
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 30px;
+    background-color: #ffffff;
+    filter: drop-shadow(#000000 0 4px 4px);
+  }
+
+  .header-content {
+    height: 100%;
+  }
+
+  .top-navigation ul {
+    display: none;
+  }
+
+  .portfolio-content {
+    padding-top: 150px;
+  }
+
+  .section-info {
+    padding: 80px 30px;
+  }
+
+  .portfolio-list {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .portfolio-item {
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  .portfolio-item-info .item-title {
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  .teammates-list:before,
+  .teammates-list::after {
+    display: none;
+  }
+
+  .teammates-list-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 40px;
+  }
+
+  .teammate {
+    width: 40%;
+    justify-content: center;
+  }
+
+  .teammate-img-wrapper {
+    width: 100%;
+  }
+
+  .teammate-social-icons {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .teammate-social-icons > div {
+    background-color: #969696;
+  }
+
+  .teammate-info * {
+    text-align: center;
+  }
+
+  .footer-content .social-icons > div {
+    width: 30px;
+  }
+
+  .footer-content .social-icons > div > div {
+    background-color: #ffffff;
+  }
+
+  .footer-content .social-icons * span {
+    display: none;
+  }
+
+  .footer-contacts {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 80px 0 60px;
+  }
+  .footer-contacts > div {
+    width: 339px;
+  }
+
+  .phones ul li a,
+  .email ul li a {
+    color: #ffffff;
+  }
+}
 /* 👇👇👇 Add the media rule and the styles that belong to the MOBILE view only beneath 👇👇👇 */
+
+@media (max-width: 767px) {
+  header {
+    padding: 10px 16px;
+  }
+
+  .section-info {
+    padding: 40px 16px;
+  }
+
+  .portfolio-list {
+    padding: 0 16px;
+  }
+
+  .portfolio-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolio-img-wrapper {
+    height: 180px;
+  }
+
+  .portfolio-item-info {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .portfolio-item-info .item-title {
+    font-weight: 510;
+    font-family: SFProDisplay, Arial, Helvetica, sans-serif;
+  }
+
+  .portfolio-item-info .item-description {
+    font-family: SFProDisplay, Arial, Helvetica, sans-serif;
+  }
+
+  .teammates-content {
+    padding: none;
+  }
+
+  .section-info {
+    padding: 30px 40px 30px 16px;
+  }
+
+  .teammates-list {
+    padding: 0 16px 40px 16px;
+    flex-flow: column nowrap;
+
+    gap: 16px;
+  }
+
+  .footer-contacts > div {
+    width: 100%;
+  }
+}
