@@ -4,7 +4,13 @@
   * Add the media rule and the styles that belong to the MOBILE view only
 */
 @import url("https://v1.fontapi.ir/css/SFProDisplay");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+/* All devices only have padding in section content, not the subtext */
+.content p.subtext,
+.content h1 {
+  padding: 0;
+}
 /* Added to fix all devices' adress not aligning with 3 lines to adress */
 .address {
   align-items: center;
@@ -13,12 +19,126 @@
   width: 182px;
 }
 
+/* Added to fix all logo name to be propper case */
+.logo span {
+  text-transform: capitalize;
+}
+
+/* 👇👇👇 Add the styles that belong to the DESKTOP view only beneath 👇👇👇 */
+
 @media (min-width: 1024px) {
-  .top-navigation .trigram {
+  .header-content {
+    padding: 10px 30px;
+  }
+
+  .logo span {
+    font-size: 24px;
+  }
+
+  .top-navigation {
+    gap: 30px;
+    padding: 4px 0;
+  }
+
+  .top-navigation .trigram,
+  .top-navigation ul li:nth-of-type(3) {
     display: none;
   }
 
-  /* 👇👇👇 Add the styles that belong to the DESKTOP view only beneath 👇👇👇 */
+  /*would be nice to just remove .active but no editing body */
+  .top-navigation ul li a,
+  .top-navigation ul li a.active {
+    color: #737373;
+    font-size: 18px;
+  }
+
+  .top-navigation ul li a:hover {
+    color: #434343;
+  }
+
+  .section-info {
+    padding: 80px 30px;
+  }
+
+  .content h1 {
+    padding: 0;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+  }
+
+  .portfolio-list {
+    padding: 0 30px;
+  }
+
+  .portfolio-item,
+  .portfolio-item-info {
+    gap: 10px;
+  }
+
+  .teammates-content {
+    padding: 0;
+  }
+
+  .teammates-content .section-info {
+    padding: 80px 30px 60px;
+  }
+
+  .surrounded-header {
+    font-size: 40px;
+    gap: 10px;
+  }
+
+  .teammates-list {
+    width: auto;
+    padding: 0 30px 80px;
+    gap: 40px;
+  }
+
+  .teammates-list:before,
+  .teammates-list:after {
+    padding: 0 20px;
+    gap: 10px;
+  }
+
+  .teammates-list-wrapper {
+    gap: 40px;
+  }
+
+  .teammate-img-wrapper {
+    height: 163px;
+  }
+
+  .teammate-name {
+    color: #1f1f1f;
+  }
+
+  .teammate-social-icons {
+    gap: 10px;
+  }
+
+  .footer-content {
+    padding: 30px;
+    gap: 24px;
+  }
+
+  footer .social-icons div {
+    font-weight: bold;
+  }
+
+  footer .social-icons div:hover span {
+    color: #ffffff;
+  }
+
+  footer .social-icons div:hover .icon {
+    background-color: #ffffff;
+  }
+
+  .footer-contacts {
+    padding: 80px 0 60px;
+  }
+
+  .email ul li a:hover {
+    color: #ffffff;
+  }
 }
 
 /* 👇👇👇 Add the media rule and the styles that are common within the TABLET and MOBILE views beneath 👇👇👇 */
@@ -41,6 +161,11 @@
     height: 100%;
   }
 
+  .top-navigation {
+    padding: 4px 0;
+    gap: 30px;
+  }
+
   .top-navigation ul {
     display: none;
   }
@@ -54,6 +179,7 @@
   }
 
   .portfolio-list {
+    padding: 0 30px;
     flex-direction: column;
     gap: 30px;
   }
@@ -63,9 +189,34 @@
     gap: 30px;
   }
 
+  .portfolio-img-wrapper {
+    width: 200px;
+    height: 140px;
+    gap: 10px;
+  }
+
+  .portfolio-item-info {
+    gap: 10px;
+  }
+
   .portfolio-item-info .item-title {
     font-weight: 400;
     line-height: 30px;
+  }
+
+  .portfolio-item-info .item-description {
+    font-weight: 400;
+  }
+
+  .teammates-content {
+    padding: 0;
+  }
+
+  .teammates-content .section-info {
+    padding: 80px 30px 60px;
+  }
+  .content h2 {
+    font-size: 40px;
   }
 
   .teammates-list:before,
@@ -74,6 +225,7 @@
   }
 
   .teammates-list-wrapper {
+    padding: 0 30px 80px;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 40px;
@@ -85,7 +237,12 @@
   }
 
   .teammate-img-wrapper {
+    height: 230px;
     width: 100%;
+  }
+
+  .teammate-data {
+    gap: 16px;
   }
 
   .teammate-social-icons {
@@ -138,6 +295,12 @@
     padding: 40px 16px;
   }
 
+  .subtext {
+    font-weight: 510;
+    padding: 0;
+    font-family: SFProDisplay, Arial, Helvetica, sans-serif;
+  }
+
   .portfolio-list {
     padding: 0 16px;
   }
@@ -165,12 +328,18 @@
     font-family: SFProDisplay, Arial, Helvetica, sans-serif;
   }
 
+  /* TODO Wont select or show in inspect */
   .teammates-content {
-    padding: none;
+    padding-top: 0;
   }
 
-  .section-info {
-    padding: 30px 40px 30px 16px;
+  .teammates-content .section-info {
+    padding: 40px 30px 40px 16px;
+  }
+
+  .surrounded-header {
+    font-size: 40px;
+    gap: 10px;
   }
 
   .teammates-list {
@@ -183,4 +352,6 @@
   .footer-contacts > div {
     width: 100%;
   }
+
+  /*TODO footer flex and display */
 }
