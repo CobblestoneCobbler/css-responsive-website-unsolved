@@ -3,6 +3,7 @@
   * Add the media rule and the styles that are common within the TABLET and MOBILE views
   * Add the media rule and the styles that belong to the MOBILE view only
 */
+
 @import url("https://v1.fontapi.ir/css/SFProDisplay");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
@@ -45,13 +46,14 @@
     display: none;
   }
 
-  /*would be nice to just remove .active but no editing body */
   .top-navigation ul li a,
   .top-navigation ul li a.active {
     color: #737373;
     font-size: 18px;
   }
-
+  .top-navigation ul li a {
+    transition-duration: 1s;
+  }
   .top-navigation ul li a:hover {
     color: #434343;
   }
@@ -114,6 +116,12 @@
   .teammate-social-icons {
     gap: 10px;
   }
+  .teammate-social-icons > div {
+    transition-duration: 1s;
+  }
+  .teammate-social-icons > div:hover {
+    background-color: #969696;
+  }
 
   .footer-content {
     padding: 30px;
@@ -122,6 +130,12 @@
 
   footer .social-icons div {
     font-weight: bold;
+  }
+  footer .social-icons div span,
+  footer .social-icons div .icon,
+  .email ul li a,
+  .phones ul li a {
+    transition-duration: 1s;
   }
 
   footer .social-icons div:hover span {
@@ -136,7 +150,8 @@
     padding: 80px 0 60px;
   }
 
-  .email ul li a:hover {
+  .email ul li a:hover,
+  .phones ul li a:hover {
     color: #ffffff;
   }
 }
@@ -149,12 +164,12 @@
   header {
     width: 100%;
     height: 70px;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     padding: 10px 30px;
     background-color: #ffffff;
-    filter: drop-shadow(#000000 0 4px 4px);
+    box-shadow: 0px 4px 4px 0px #00000026;
   }
 
   .header-content {
@@ -165,13 +180,17 @@
     padding: 4px 0;
     gap: 30px;
   }
+  .trigram {
+    appearance: auto;
+  }
 
   .top-navigation ul {
     display: none;
   }
 
   .portfolio-content {
-    padding-top: 150px;
+    padding-top: 70px;
+    gap: 0;
   }
 
   .section-info {
@@ -189,13 +208,15 @@
     gap: 30px;
   }
 
-  .portfolio-img-wrapper {
+  .portfolio-img-wrapper,
+  .portfolio-img-wrapper img {
     width: 200px;
     height: 140px;
     gap: 10px;
   }
 
   .portfolio-item-info {
+    justify-content: start;
     gap: 10px;
   }
 
@@ -210,6 +231,7 @@
 
   .teammates-content {
     padding: 0;
+    gap: 0;
   }
 
   .teammates-content .section-info {
@@ -228,7 +250,7 @@
     padding: 0 30px 80px;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    gap: 40px;
+    gap: 40px 40px;
   }
 
   .teammate {
@@ -239,6 +261,10 @@
   .teammate-img-wrapper {
     height: 230px;
     width: 100%;
+  }
+  .teammate-img-wrapper img {
+    width: 100%;
+    height: 230px;
   }
 
   .teammate-data {
@@ -257,7 +283,13 @@
   .teammate-info * {
     text-align: center;
   }
-
+  footer {
+    padding: 30px;
+  }
+  .footer-content.content {
+    padding: 0;
+    gap: 24px;
+  }
   .footer-content .social-icons > div {
     width: 30px;
   }
@@ -287,8 +319,21 @@
 /* 👇👇👇 Add the media rule and the styles that belong to the MOBILE view only beneath 👇👇👇 */
 
 @media (max-width: 767px) {
+  .content {
+    margin: 0;
+    max-width: none;
+  }
   header {
     padding: 10px 16px;
+    width: 100%;
+    min-width: 0;
+  }
+  .header-content {
+    padding: 0;
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
+    gap: 0;
   }
 
   .section-info {
@@ -300,55 +345,112 @@
     padding: 0;
     font-family: SFProDisplay, Arial, Helvetica, sans-serif;
   }
+  .content p.subtext {
+    width: 100%;
+  }
 
+  .portfolio-content {
+    padding: 70px 0 40px;
+  }
   .portfolio-list {
     padding: 0 16px;
   }
 
   .portfolio-item {
     flex-direction: column;
+    align-items: center;
     gap: 10px;
   }
 
   .portfolio-img-wrapper {
+    width: 100%;
+    height: 180px;
+  }
+  .portfolio-img-wrapper img {
+    width: 328px;
     height: 180px;
   }
 
   .portfolio-item-info {
     justify-content: center;
+    align-items: center;
     gap: 10px;
   }
 
   .portfolio-item-info .item-title {
     font-weight: 510;
     font-family: SFProDisplay, Arial, Helvetica, sans-serif;
+    text-align: center;
   }
 
   .portfolio-item-info .item-description {
     font-family: SFProDisplay, Arial, Helvetica, sans-serif;
+    text-align: center;
   }
 
-  /* TODO Wont select or show in inspect */
   .teammates-content {
     padding-top: 0;
+    gap: 0px;
   }
 
   .teammates-content .section-info {
     padding: 40px 30px 40px 16px;
   }
 
-  .surrounded-header {
+  h2.surrounded-header {
+    width: 100%;
+    padding: 0;
     font-size: 40px;
     gap: 10px;
   }
 
   .teammates-list {
     padding: 0 16px 40px 16px;
+  }
+  .teammates-list-wrapper {
+    padding: 0;
     flex-flow: column nowrap;
-
+  }
+  .teammate {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #969696;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
     gap: 16px;
   }
-
+  .teammate-img-wrapper,
+  .teammate-img-wrapper > img {
+    width: 130px;
+    height: 130px;
+  }
+  .teammate-data,
+  .teammate-info,
+  .teammate-social-icons {
+    align-items: start;
+  }
+  .teammate-info > span {
+    text-align: start;
+  }
+  footer {
+    padding: 30px 16px;
+  }
+  .footer-content {
+    gap: 24px;
+  }
+  .footer-content .social-icons {
+    flex-direction: column;
+  }
+  .footer-content .social-icons > div {
+    width: auto;
+  }
+  .footer-content .social-icons * span {
+    display: block;
+  }
+  .footer-contacts {
+    padding: 40px 0 0;
+  }
   .footer-contacts > div {
     width: 100%;
   }
